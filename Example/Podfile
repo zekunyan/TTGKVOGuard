@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'TTGKVOGuard_Example' do
+  pod 'TTGKVOGuard', :path => '../'
+
+  target 'TTGKVOGuard_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
