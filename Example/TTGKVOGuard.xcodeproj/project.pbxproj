@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5AFB2E4AE6209D4449DF0D66 /* Pods_TTGKVOGuard_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B518C76A127376737B538FB3 /* Pods_TTGKVOGuard_Example.framework */; };
+		4E4CF51E1DD613C187BC1468 /* libPods-TTGKVOGuard_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FB7703E0F3A49515835C1553 /* libPods-TTGKVOGuard_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -21,8 +21,8 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		78906CE35FEF014B95DA151D /* Pods_TTGKVOGuard_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1F3AC3F12D2DC7CCA7974EA /* Pods_TTGKVOGuard_Tests.framework */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
+		E2F66226C7394363EB43A3E4 /* libPods-TTGKVOGuard_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FE921374982831517B87F92 /* libPods-TTGKVOGuard_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +36,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FE921374982831517B87F92 /* libPods-TTGKVOGuard_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TTGKVOGuard_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		15D50A092FC2585FBF33B0F0 /* Pods-TTGKVOGuard_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTGKVOGuard_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTGKVOGuard_Tests/Pods-TTGKVOGuard_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		404A4593B6E51EE26793608C /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* TTGKVOGuard_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TTGKVOGuard_Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,11 +61,10 @@
 		7DA0EE0228741CED462094A0 /* Pods-TTGKVOGuard_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTGKVOGuard_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTGKVOGuard_Example/Pods-TTGKVOGuard_Example.release.xcconfig"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		9AA0A39EED612C33917310A1 /* Pods-TTGKVOGuard_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTGKVOGuard_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-TTGKVOGuard_Tests/Pods-TTGKVOGuard_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		B518C76A127376737B538FB3 /* Pods_TTGKVOGuard_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTGKVOGuard_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C1F3AC3F12D2DC7CCA7974EA /* Pods_TTGKVOGuard_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TTGKVOGuard_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55E0BD974916E4073472AF2 /* TTGKVOGuard.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = TTGKVOGuard.podspec; path = ../TTGKVOGuard.podspec; sourceTree = "<group>"; };
 		E584162DFFB2CAFAC8CDDB05 /* Pods-TTGKVOGuard_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TTGKVOGuard_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TTGKVOGuard_Example/Pods-TTGKVOGuard_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		F1E292741FF54783704DB151 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		FB7703E0F3A49515835C1553 /* libPods-TTGKVOGuard_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-TTGKVOGuard_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				5AFB2E4AE6209D4449DF0D66 /* Pods_TTGKVOGuard_Example.framework in Frameworks */,
+				4E4CF51E1DD613C187BC1468 /* libPods-TTGKVOGuard_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -86,7 +86,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				78906CE35FEF014B95DA151D /* Pods_TTGKVOGuard_Tests.framework in Frameworks */,
+				E2F66226C7394363EB43A3E4 /* libPods-TTGKVOGuard_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,8 +132,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				B518C76A127376737B538FB3 /* Pods_TTGKVOGuard_Example.framework */,
-				C1F3AC3F12D2DC7CCA7974EA /* Pods_TTGKVOGuard_Tests.framework */,
+				FB7703E0F3A49515835C1553 /* libPods-TTGKVOGuard_Example.a */,
+				0FE921374982831517B87F92 /* libPods-TTGKVOGuard_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";

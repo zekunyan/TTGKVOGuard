@@ -1,0 +1,19 @@
+PODS:
+  - TTGDeallocTaskHelper (0.1.0)
+  - TTGKVOGuard (0.1.0):
+    - TTGDeallocTaskHelper
+
+DEPENDENCIES:
+  - TTGKVOGuard (from `../`)
+
+EXTERNAL SOURCES:
+  TTGKVOGuard:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  TTGDeallocTaskHelper: d0428c9ddfb830d81fdb5d35e441c70318bb7bc5
+  TTGKVOGuard: 25f229bd0677608da7ff5e531b4e42d3110ba78d
+
+PODFILE CHECKSUM: d1da0b39de9c6ef45ad89dee47e210fd17513d94
+
+COCOAPODS: 1.0.1

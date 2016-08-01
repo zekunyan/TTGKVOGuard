@@ -1,11 +1,10 @@
-use_frameworks!
+platform :ios, ‘6.0’
 
 target 'TTGKVOGuard_Example' do
   pod 'TTGKVOGuard', :path => '../'
 
   target 'TTGKVOGuard_Tests' do
     inherit! :search_paths
-
     
   end
 end

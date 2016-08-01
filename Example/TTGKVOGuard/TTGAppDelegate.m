@@ -8,6 +8,8 @@
 
 #import "TTGAppDelegate.h"
 
+#define SF_OBSERVERS_LOG_ORIGINAL_METHODS 1
+
 @implementation TTGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
