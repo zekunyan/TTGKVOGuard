@@ -7,6 +7,7 @@
 //
 
 #import "TTGViewController.h"
+#import <TTGKVOGuard/NSObject+TTGKVOGuard.h>
 
 @interface TTGObserver : NSObject
 
@@ -25,6 +26,7 @@
 
 @interface TTGSubject : NSObject
 @property (nonatomic, strong) NSString *name;
+@property (nonatomic, strong) NSNumber *number;
 @end
 
 @implementation TTGSubject
@@ -36,6 +38,8 @@
 @end
 
 @interface TTGViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *kvoGuardSwitchInfoLabel;
+
 @property (nonatomic, strong) TTGSubject *subject;
 @property (nonatomic, strong) TTGObserver *observer;
 @end
@@ -45,29 +49,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    _observer = [TTGObserver new];
+    [NSObject ttg_setTTGKVOGuardEnable:YES];
 }
 
-- (IBAction)runTest:(id)sender {
-    TTGObserver *observer = [TTGObserver new];
-    TTGSubject *subject = [TTGSubject new];
-    
-    NSString *key = @"key";
+- (IBAction)switchKVOGuard:(UISwitch *)sender {
+    _kvoGuardSwitchInfoLabel.text = [NSString stringWithFormat:@"TTGKVOGuard is %@", (sender.on ? @"on" : @"off")];
+    [NSObject ttg_setTTGKVOGuardEnable:sender.on];
+}
 
-    [subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
-    [subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
-    [subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
-    [subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:(__bridge void * _Nullable)(key)];
+- (IBAction)runTest1:(id)sender {
+    _observer = [TTGObserver new];
     
-    @try {
-//        [subject removeObserver:observer forKeyPath:@"name" context:(__bridge void * _Nullable)(key)];
-        [subject removeObserver:observer forKeyPath:@"name"];
-        [subject removeObserver:observer forKeyPath:@"name"];
-        [subject removeObserver:observer forKeyPath:@"name"];
-    } @catch (NSException *exception) {
-        NSLog(@"!!!!! Remove observer exception: %@", exception);
-    } @finally {
-        NSLog(@"remove observer exception finally");
+    @autoreleasepool {
+        // subject will release after @autoreleasepool
+        TTGSubject *subject = [TTGSubject new];
+        NSString *key = @"key";
+        
+        [subject addObserver:_observer forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+        [subject addObserver:_observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [subject addObserver:_observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [subject addObserver:_observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:(__bridge void * _Nullable)(key)];
+        [subject addObserver:_observer forKeyPath:@"number" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+    }
+}
+
+- (IBAction)runTest2:(id)sender {
+    _subject = [TTGSubject new];
+    
+    @autoreleasepool {
+        // observer will release after @autoreleasepool
+        TTGObserver *observer = [TTGObserver new];
+        NSString *key = @"key";
+        
+        [_subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionNew context:nil];
+        [_subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [_subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
+        [_subject addObserver:observer forKeyPath:@"name" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:(__bridge void * _Nullable)(key)];
+        [_subject addObserver:observer forKeyPath:@"number" options:NSKeyValueObservingOptionInitial | NSKeyValueObservingOptionNew context:nil];
     }
 }
 

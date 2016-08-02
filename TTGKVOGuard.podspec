@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
 s.name             = 'TTGKVOGuard'
 s.version          = '0.1.0'
-s.summary          = 'Auto remove KVO observer from object after it dealloc.'
+s.summary          = 'Auto remove KVO observer from object after the object or its observer dealloc.'
 
 s.description      = <<-DESC
-Auto remove KVO observer from object after it dealloc, base on TTGDeallocTaskHelper.
+Auto remove KVO observer from object after the object or the observer dealloc, base on TTGDeallocTaskHelper.
 DESC
 
 s.homepage         = 'https://github.com/zekunyan/TTGKVOGuard'

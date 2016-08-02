@@ -10,4 +10,11 @@
 
 @interface NSObject (TTGKVOGuard)
 
+/**
+ *  Set TTGKVOGuardEnable
+ *
+ *  @param enable enable
+ */
++ (void)ttg_setTTGKVOGuardEnable:(BOOL)enable;
+
 @end

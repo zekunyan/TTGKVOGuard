@@ -10,10 +10,12 @@
 #import <objc/runtime.h>
 #import <objc/message.h>
 #import <pthread.h>
-#import <NSObject+TTGDeallocTaskHelper.h>
+#import <TTGDeallocTaskHelper/NSObject+TTGDeallocTaskHelper.h>
 
 static pthread_mutex_t TTGKVOGuardInfoDictLock;
 static NSMutableDictionary *TTGKVOGuardInfoDict;
+
+static BOOL TTGKVOGuardEnable = NO;
 
 @interface TTGKVOGuardInfo : NSObject
 @property (nonatomic, unsafe_unretained) id unsafeObject;
@@ -33,21 +35,32 @@ static NSMutableDictionary *TTGKVOGuardInfoDict;
 @implementation NSObject (TTGKVOGuard)
 
 + (void)load {
-    pthread_mutex_init(&TTGKVOGuardInfoDictLock, NULL);
-    TTGKVOGuardInfoDict = [NSMutableDictionary new];
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        TTGKVOGuardEnable = NO;
+        pthread_mutex_init(&TTGKVOGuardInfoDictLock, NULL);
+        TTGKVOGuardInfoDict = [NSMutableDictionary new];
+        
         [self.class _ttg_methodSwizzlingWithClass:self.class
                                  originalSelector:@selector(addObserver:forKeyPath:options:context:)
                                  swizzledSelector:@selector(ttg_addObserver:forKeyPath:options:context:)];
     });
 }
 
+#pragma mark - Public methods
+
++ (void)ttg_setTTGKVOGuardEnable:(BOOL)enable {
+    TTGKVOGuardEnable = enable;
+}
+
 #pragma mark - Swizzling methods
 
 - (void)ttg_addObserver:(NSObject *)observer forKeyPath:(NSString *)keyPath options:(NSKeyValueObservingOptions)options context:(nullable void *)context {
     [self ttg_addObserver:observer forKeyPath:keyPath options:options context:context];
+    
+    if (!TTGKVOGuardEnable) {
+        return;
+    }
     
     // Generate key
     NSString *infoKey = [self.class _ttg_getInfoKeyForObject:self observer:observer keyPath:keyPath context:context];
@@ -135,6 +148,7 @@ static NSMutableDictionary *TTGKVOGuardInfoDict;
     
     for (NSInteger i = 0; i < info.kvoCount; i++) {
         @try {
+            // It's safe to call "removeObserver:forKeyPath:context:" multi times
             [info.unsafeObject removeObserver:info.unsafeObserver forKeyPath:info.keyPath context:info.context];
         } @catch (NSException *exception) {}
     }
